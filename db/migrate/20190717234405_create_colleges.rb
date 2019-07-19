@@ -4,7 +4,6 @@ class CreateColleges < ActiveRecord::Migration[5.2]
     t.string :name
     t.string :city
     t.string :state
-
     t.timestamps
     end
   end

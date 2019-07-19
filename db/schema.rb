@@ -28,12 +28,17 @@ ActiveRecord::Schema.define(version: 2019_07_17_234727) do
     t.string "program"
     t.string "status"
     t.string "faculty"
+    t.integer "application_cost"
+    t.date "date_submitted"
+    t.string "website"
+    t.string "app_username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
