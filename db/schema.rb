@@ -23,15 +23,19 @@ ActiveRecord::Schema.define(version: 2019_07_17_234727) do
   create_table "submissions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "college_id"
-    t.date "deadline"
+    t.datetime "deadline"
+    t.datetime "date_submitted"
     t.string "degree"
     t.string "program"
-    t.string "status"
+    t.string "website"
+    t.boolean "status"
     t.string "faculty"
     t.integer "application_cost"
-    t.date "date_submitted"
-    t.string "website"
-    t.string "app_username"
+    t.boolean "cv"
+    t.boolean "personal_statement"
+    t.boolean "lor"
+    t.boolean "scores"
+    t.boolean "transcript"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
