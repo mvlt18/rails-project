@@ -1,0 +1,12 @@
+<h3>College List:</h3><br>
+
+<% @colleges.each do |college| %>
+<%= link_to college.name, college_path(college) %> - <%=college.city%>, <%=college.state%><br>
+<% end %>
+
+
+<br><br>
+
+<!--link options-->
+<%= link_to "My submissions", user_path(current_user) %> <br>
+<%= link_to "Add a new submission", '/submissions/new' %> <br>
