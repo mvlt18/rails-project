@@ -11,12 +11,20 @@ class UsersController < ApplicationController
     if @user.save
       #login the user
       session[:user_id]=@user.id
-      #change this to redirect to submissions index page
-      redirect_to '/login'
+      #redirect to submissions index page
+      redirect_to user_path(@user)
     else
       render :new
     end
   end
+
+  #display user profile show page
+  def show
+    @user = User.find_by_id(params[:id])
+    #rescue code if user id does not exist, redirect to somewhere else.
+    redirect_to '/' if !@user
+  end
+
 
   private
 
