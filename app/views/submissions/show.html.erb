@@ -1,0 +1,22 @@
+Program: <%= @submission.program %><br>
+Degree: <%= @submission.degree %><br>
+Website: <%= @submission.website %><br>
+Faculty Name: <%= @submission.faculty %><br>
+Application Deadline:<%= @submission.deadline %><br>
+Date Application Submitted <%= @submission.date_submitted %><br>
+Application Cost:<%= @submission.application_cost %><br>
+CV: <%= @submission.cv %><br>
+Personal Statement: <%= @submission.personal_statement %><br>
+Letters of Reccomendation: <%= @submission.lor %><br>
+GRE scores: <%= @submission.scores %><br>
+Offical Transcripts: <%= @submission.transcript %>
+
+
+<br><br>
+
+Add Edit link if current_user <br>
+Add Delete link if current_user <br>
+
+
+<!--link options-->
+<%= link_to "Back to My Submissions", user_path(current_user) %>
