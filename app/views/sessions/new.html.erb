@@ -1,14 +1,28 @@
-<h2>Log into your account</h2>
 
-<%= form_for @user, url: '/login' do |f| %>
+<h3 style="text-align:center">Log in:</h3>
 
-<%= f.label :email %>
-<%= f.email_field :email %><br>
+<div style="text-align:center">
 
-<%= f.label :password %>
-<%= f.password_field :password %><br>
+  <%= form_for @user, url: '/login' do |f| %>
 
-<%= f.submit "Login" %>
+    <%= f.label :email %>
+    <%= f.email_field :email %><br><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br><br>
+
+    <%= f.submit "Login" %>
+
+  <%end%>
+
+  <%= link_to "Login via GitHub", '/auth/github'%>
+
+  <br>
+
+  <h5 style="text-align:center">Don't have an account? <%=link_to 'Signup', signup_path%></h5>
 
 
-<%end%>
+</div>
+
+
+<!--link options-->

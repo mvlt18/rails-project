@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :colleges
-  # resources :users
+  resources :users
 
   root 'sessions#home'
 
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/auth/github/callback' => 'sessions#create'
+
 
   resources :submissions, only: [:index, :new, :show, :create]
 
