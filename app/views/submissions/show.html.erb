@@ -1,22 +1,32 @@
-Program: <%= @submission.program %><br>
-Degree: <%= @submission.degree %><br>
-Website: <%= @submission.website %><br>
-Faculty Name: <%= @submission.faculty %><br>
-Application Deadline:<%= @submission.deadline %><br>
-Date Application Submitted <%= @submission.date_submitted %><br>
-Application Cost:<%= @submission.application_cost %><br>
-CV: <%= @submission.cv %><br>
-Personal Statement: <%= @submission.personal_statement %><br>
-Letters of Reccomendation: <%= @submission.lor %><br>
-GRE scores: <%= @submission.scores %><br>
-Offical Transcripts: <%= @submission.transcript %>
+Application Details: <br> <br>
 
+School: <%= @submission.college.name %><br>
+Program: <%= @submission.program %><br>
+Department Website: <%= @submission.website %><br>
+Degree: <%= @submission.degree %><br>
+Faculty Mentor Name: <%= @submission.faculty %><br>
+Application Cost:<%= @submission.application_cost %><br>
+<br><br>
+Letters of Reccomendation: <%= @submission.lor %><br>
+
+
+
+<br> <br>
+Application Deadline:<%= @submission.deadline %><br>
+Date Submitted <%= @submission.date_submitted %><br>
+Status: <%= @submission.status %><br>
 
 <br><br>
+<br>
+<% if current_user == @submission.user %>
+  <%= link_to "Edit Application", edit_college_submission_path(@submission.college, @submission) if @submission.college %><br>
 
-Add Edit link if current_user <br>
-Add Delete link if current_user <br>
+  <%= link_to 'Delete Application',  submission_path(@submission),
+      data: { confirm: 'Are you sure?' }, method: :delete %>
+
+<% end %>
+<br>
 
 
 <!--link options-->
-<%= link_to "Back to My Submissions", user_path(current_user) %>
+<%= link_to "Back to Profile", user_path(current_user) %>

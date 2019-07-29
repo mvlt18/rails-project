@@ -37,20 +37,33 @@ class SubmissionsController < ApplicationController
   end
 
 
-  # def edit
-  #   set_submission
-  # end
-  #
-  # def update
-  #   submission = Submission.find(params[:id])
-  #   submission.update(submission_params)
-  #   redirect_to submission
-  # end
+  def edit
+    set_submission
+    @college = College.find_by(id: params[:college_id])
+
+      if @submission.user_id != current_user.id
+      redirect_to colleges_path
+      end
+  end
+
+  def update
+    submission = Submission.find(params[:id])
+    submission.update(submission_params)
+    redirect_to submission
+  end
+
+  def destroy
+       set_submission
+       # if current_user.id == @submission.user_id
+         @submission.destroy
+         redirect_to submissions_path
+       # end
+     end
 
   private
 
   def submission_params
-    params.require(:submission).permit(:user_id, :college_id, :deadline, :date_submitted, :degree, :program, :website, :status, :faculty, :application_cost, :cv, :personal_statement, :lor, :scores, :transcript)
+    params.require(:submission).permit(:user_id, :college_id, :deadline, :date_submitted, :degree, :program, :website, :status, :faculty, :application_cost, :lor)
   end
 
   def set_submission
