@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_234727) do
+ActiveRecord::Schema.define(version: 2019_07_29_191607) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -28,14 +28,10 @@ ActiveRecord::Schema.define(version: 2019_07_17_234727) do
     t.string "degree"
     t.string "program"
     t.string "website"
-    t.boolean "status"
+    t.string "status"
     t.string "faculty"
     t.integer "application_cost"
-    t.boolean "cv"
-    t.boolean "personal_statement"
-    t.boolean "lor"
-    t.boolean "scores"
-    t.boolean "transcript"
+    t.text "lor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_07_17_234727) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "undergrad_college_name"
+    t.string "undergrad_major"
+    t.string "undergrad_minor"
+    t.float "undergrad_gpa"
+    t.string "grad_college_name"
+    t.string "grad_degree"
+    t.float "grad_gpa"
+    t.string "gre_scores"
+    t.string "gmat_scores"
+    t.text "experience"
   end
 
 end
