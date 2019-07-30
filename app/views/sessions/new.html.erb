@@ -1,28 +1,26 @@
+<!-- Login section -->
+<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  <div class="w3-content" style="max-width:600px">
 
-<h3 style="text-align:center">Log in:</h3>
+    <h4 class="w3-center"><b>Log In:</b></h4>
 
-<div style="text-align:center">
+    <%= form_for @user, url: '/login' do |f| %>
+      <div class="w3-section">
+      <%= f.label :email %>
+      <%= f.email_field :email, class:"w3-input w3-border"  %>
+      </div>
 
-  <%= form_for @user, url: '/login' do |f| %>
+      <div class="w3-section">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"w3-input w3-border" %>
+      </div>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %><br><br>
+      <%= f.submit "Login" %>
+    <%end%>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br><br>
+    <p class="w3-center"><%= link_to "Login via GitHub", '/auth/github'%></p>
 
-    <%= f.submit "Login" %>
+    <h6 style="text-align:center">Don't have an account? <%=link_to 'Signup', signup_path%></h6>
 
-  <%end%>
-
-  <%= link_to "Login via GitHub", '/auth/github'%>
-
-  <br>
-
-  <h5 style="text-align:center">Don't have an account? <%=link_to 'Signup', signup_path%></h5>
-
-
+  </div>
 </div>
-
-
-<!--link options-->

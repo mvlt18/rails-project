@@ -1,17 +1,29 @@
-<h2>Sign Up for a new account</h2>
+<!-- Signup section -->
+<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  <div class="w3-content" style="max-width:600px">
+    <h4 class="w3-center"><b>Create a new account:</b></h4>
 
-<%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
+      <div class="w3-section">
+      <%= f.label :name %>
+      <%= f.text_field :name, class:"w3-input w3-border"  %>
+      </div>
 
-<%= f.label :name %>
-<%= f.text_field :name %><br>
+      <div class="w3-section">
+      <%= f.label :email %>
+      <%= f.email_field :email, class:"w3-input w3-border"  %>
+      </div>
 
-<%= f.label :email %>
-<%= f.email_field :email %><br>
+      <div class="w3-section">
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"w3-input w3-border" %>
+      </div>
 
-<%= f.label :password %>
-<%= f.password_field :password %><br>
+      <%= f.submit "Sign Up" %>
+    <%end%>
 
-<%= f.submit "Sign Up" %>
+    <h6 style="text-align:center">Already have an account? <%=link_to 'Login', login_path%></h6>
 
+  </div>
 
-<%end%>
+</div>

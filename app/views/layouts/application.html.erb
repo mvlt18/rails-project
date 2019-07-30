@@ -1,17 +1,102 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Project</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<html lang="en">
+  <title>SocialGrads</title>
 
-  <body>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= link_to "Logout", logout_path %>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+  <!-- ############################################# -->
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+  <style>
+  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+  .w3-quarter img{margin-bottom: -6px; cursor: pointer}
+  .img {
+    display: inline-block;
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    th, td {
+    padding: 15px;
+  }
+  </style>
+
+  <body class="w3-light-grey">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+    <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a>
+    <a href="/colleges" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Colleges</a>
+    <a href="/submissions" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Submissions</a>
+    <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+  </nav>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+    <span class="w3-left w3-padding">Social Grads</span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+  </header>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+    <!-- Photo grid -->
+    <div class="w3-row w3-grayscale-min">
+
+      <div class="w3-quarter">
+         <img src="/images/girl.jpg" alt="girl" style="width:100%" >
+       </div>
+
+     <div class="w3-quarter">
+        <img src="/images/library.jpg" alt="library" style="width:100%" >
+      </div>
+
+      <div class="w3-quarter">
+        <img src="/images/grad.jpg" alt="graduation" style="width:100%" >
+      </div>
+
+      <div class="w3-quarter">
+        <img src="/images/outdoor_pond.jpg" alt="pond" style="width:100%" >
+      </div>
+
+    </div>
+
+
+    <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    </script>
+
+  <%= yield %>
+</body>
+
 </html>

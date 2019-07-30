@@ -1,0 +1,73 @@
+<div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+  <div class="w3-content w3-justify" style="max-width:600px">
+
+    <h4>Editing <%=@user.name%>'s Profile</h4>
+
+    <%= form_for @user do |f| %>
+
+      <div class="w3-section">
+      <%= f.label :undergrad_college_name %>
+      <%= f.text_field :undergrad_college_name, class:"w3-input w3-border"%>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :undergrad_major %>
+      <%= f.text_field :undergrad_major, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :undergrad_minor %>
+      <%= f.text_field :undergrad_minor, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :undergrad_gpa %>
+      <%= f.text_field :undergrad_gpa, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :grad_college_name %>
+      <%= f.text_field :grad_college_name, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :grad_degree %>
+      <%= f.text_field :grad_degree, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :grad_gpa %>
+      <%= f.text_field :grad_gpa, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :gre_scores %>
+      <%= f.text_field :gre_scores, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :gmat_scores %>
+      <%= f.text_field :gmat_scores, class:"w3-input w3-border" %>
+      </div>
+
+      <div class="w3-section">
+      <%= f.label :experience%>
+      <%= f.text_area :experience, class:"w3-input w3-border", :rows => 5%>
+      </div>
+
+      <%= f.submit "Update" %>
+
+    <% end %>
+
+  </div>
+</div>
+
+  <!--link options-->
+  <div>
+      <div style="display: inline-block;"><%= link_to "View all Colleges", colleges_path %></div>
+      <div style="display: inline-block;">  </div>
+      <div style="display: inline-block;"><%= link_to "View all Submissions", submissions_path %></div>
+      <div style="display: inline-block;">  </div>
+      <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
+      <div style="display: inline-block;">  </div>
+  </div>
