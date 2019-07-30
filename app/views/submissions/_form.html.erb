@@ -1,39 +1,56 @@
-
-<br><br>
-
 <%= form_for @submission do |f| %>
 <%= f.hidden_field :user_id, :value=> session[:user_id] %>
 
-  <%= f.label :college_id, "Select a College" %>
-  <%= f.collection_select :college_id, College.all, :id, :name, prompt: true %><br><br>
+<div class="w3-section">
+<%= f.label :college_id, "Select a School" %>
+<%= f.collection_select :college_id, College.all, :id, :name, prompt: true %><br><br>
+</div>
 
-  <%= f.label :program %>
-  <%= f.text_field :program %><br>
+<div class="w3-section">
+<%= f.label :program %>
+<%= f.text_field :program %><br>
+</div>
 
-  <%= f.label :website %>
-  <%= f.text_field :website %><br>
+<div class="w3-section">
+<%= f.label "Department Website" %>
+<%= f.text_field :website %><br>
+</div>
 
-  <%= f.label :degree %>
-  <%= f.text_field :degree %><br>
+<div class="w3-section">
+<%= f.label :degree %>
+<%= f.text_field :degree %><br>
+</div>
 
-  <%= f.label :faculty %>
-  <%= f.text_field :faculty %><br>
+<div class="w3-section">
+<%= f.label "Faculty Mentor Name:" %>
+<%= f.text_field :faculty %><br>
+</div>
 
-  <%= f.label :application_cost %>
-  <%= f.text_field :application_cost %><br>
+<div class="w3-section">
+<%= f.label "Application Cost" %>
+<%= f.text_field :application_cost %><br>
+</div>
 
-  <%= f.label :lor %>
-  <%= f.text_field :lor %><br>
+<div class="w3-section">
+<%= f.label "Letters of Reccomendation" %>
+<%= f.text_field :lor %><br>
+</div>
 
-  <%= f.label :deadline %>
-  <%= f.date_field :deadline %><br>
+<div class="w3-section">
+<%= f.label "Application Deadline" %>
+<%= f.date_field :deadline %><br>
+</div>
 
-  <%= f.label :date_submitted %>
-  <%= f.date_field :date_submitted %><br>
+<div class="w3-section">
+<%= f.label "Date Submitted" %>
+<%= f.date_field :date_submitted %><br>
+</div>
 
-  <%= f.label :status%>
-  <%= f.text_field :status %><br><br>
+<div class="w3-section">
+<%= f.label :status%>
+<%= f.text_field :status %><br><br>
+</div>
 
-  <%= f.submit %>
+<%= f.submit "Submit" %>
 
 <% end %>

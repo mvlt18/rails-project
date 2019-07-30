@@ -1,7 +1,15 @@
+<div class="w3-container w3-light-grey w3-padding-32 " id="contact">
+  <div class="w3-content" style="left-align" >
 
-<h3><%= @college.name %></h3>
-City: <%= @college.city %><br>
-State: <%= @college.state %><br>
-<br>
+    <h4><%= @college.name %></h4>
 
-Current Count of Submissions by community: <%=@college.submissions.count%>
+    <p>
+    City: <%= @college.city %><br>
+    State: <%= @college.state %><br>
+    </p>
+
+    <p>Current count of applications by community: <%=@college.submissions.count%> - <%= link_to "View Applications", college_submissions_path(@college) %></p>
+    <p><%= link_to "Back to Schools", colleges_path %></p>
+
+  </div>
+</div>

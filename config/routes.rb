@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :colleges
   resources :users
+  resources :submissions #, only: [:index, :new, :show, :create, :edit]
 
   root 'sessions#home'
 
@@ -14,14 +15,12 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
 
 
-  resources :submissions, only: [:index, :new, :show, :create]
-
   resources :users , only: [:new, :show] do
     resources :submissions , only: [:show, :index]
   end
 
   resources :colleges , only: [:new, :show] do
-    resources :submissions , only: [:show, :index]
+    resources :submissions , only: [:show, :index, :edit]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

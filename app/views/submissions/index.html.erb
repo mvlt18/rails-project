@@ -1,57 +1,47 @@
-<h3>All Submissions</h3>
+<div class="w3-container w3-light-grey w3-padding-32 " id="contact">
+  <div class="w3-content" style="left-align" >
 
-<br>
-<p>Current submissions by App Community:</p>
-<br>
+    <h4>Applications by Social Grads Community</h4>
+    <p>
 
-<table>
-  <tr>
-    <th class="w3-large w3-padding-22">Program Name</th>
-    <th class="w3-large w3-padding-22">Degree</th>
-    <th class="w3-large w3-padding-22">College</th>
-    <th class="w3-large w3-padding-22">Applicant</th>
-    <th class="w3-large w3-padding-22">Email</th>
-  </tr>
+    <table>
+      <tr>
+        <th class="w3-large w3-padding-22">Program Name</th>
+        <th class="w3-large w3-padding-22">Degree</th>
+        <th class="w3-large w3-padding-22">School</th>
+        <th class="w3-large w3-padding-22">Applicant</th>
+        <th class="w3-large w3-padding-22">Email</th>
+      </tr>
 
-  <% @submissions.each do |submission| %>
+      <% @submissions.each do |submission| %>
 
+      <tr>
+        <td><%= link_to submission.program, user_submission_path(submission.user_id,submission) %></td>
+        <td><%=submission.degree%></td>
+        <td><%=submission.college.try(:name) %></td>
+        <td><%=submission.user.name%></td>
+        <td><%= submission.user.email%></td>
+      </tr>
 
-  <tr>
-    <td><%= link_to submission.program, submission_path(submission) %> </td>
-    <td><%=submission.degree%></td>
-    <td><%= link_to submission.college.try(:name), college_submissions_path(submission.college) %></td>
-    <td><%= link_to submission.user.name, user_submissions_path(submission.user) %></td>
-    <td><%= submission.user.email%></td>
-  </tr>
+      <% end %>
+    </table>
 
-    <% end %>
-</table>
+    </p>
 
+    <!--link options-->
+    <div>
+        <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
+        <div style="display: inline-block;">  </div>
+        <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
+        <div style="display: inline-block;">  </div>
+        <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
+        <div style="display: inline-block;">  </div>
+        <div style="display: inline-block;"><%= link_to "Back to Profile", user_path(current_user) %></div>
+        <div style="display: inline-block;">  </div>
+        <br>
 
+        <div style="display: inline-block;">  </div>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--link options-->
-<%= link_to "Go to My Profile", user_path(current_user) %>
-
-
-
-<br><br><br>
-
-
-
-<% @submissions.each do |submission| %>
-<%= link_to submission.program, submission_path(submission) %> - <%= submission.college.try(:name) %>
-(by: <%= link_to submission.user.name, user_submissions_path(submission.user) %>)<br>
-
-<% end %>
+  </div>
+</div>

@@ -24,22 +24,17 @@
     <% end %>
     </p>
 
-    <h4>Current Graduate School Applications:</h4>
-
-    <p>
-    <%@user.submissions.each do |submission|%>
-    <%= link_to submission.program, user_submission_path(@user,submission) %>, <%=submission.degree%> <%="-"%> <%=submission.college.name%> <br>
-    <% end %>
-    </p>
+    <br>
+    <h4><%= link_to "Current Graduate School Applications", user_submissions_path(@user) %></h4>
 
   </div>
 </div>
 
   <!--link options-->
   <div>
-      <div style="display: inline-block;"><%= link_to "View all Colleges", colleges_path %></div>
+      <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
       <div style="display: inline-block;">  </div>
-      <div style="display: inline-block;"><%= link_to "View all Submissions", submissions_path %></div>
+      <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
       <div style="display: inline-block;">  </div>
       <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
       <div style="display: inline-block;">  </div>

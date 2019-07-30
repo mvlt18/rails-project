@@ -1,12 +1,37 @@
-<h3>College List:</h3><br>
+<div class="w3-container w3-light-grey w3-padding-32 " id="contact">
+  <div class="w3-content" style="left-align" >
 
-<% @colleges.each do |college| %>
-<%= link_to college.name, college_path(college) %> - <%=college.city%>, <%=college.state%><br>
-<% end %>
+    <h4>All Schools:</h4>
 
+    <p>
 
-<br><br>
+    <table>
+      <tr>
+        <th class="w3-large w3-padding-22">School Name</th>
+        <th class="w3-large w3-padding-22">City</th>
+        <th class="w3-large w3-padding-22">State</th>
+      </tr>
 
-<!--link options-->
-<%= link_to "My submissions", user_path(current_user) %> <br>
-<%= link_to "Add a new submission", '/submissions/new' %> <br>
+      <% @colleges.each do |college| %>
+
+      <tr>
+        <td><%= link_to college.name, college_path(college)%></td>
+        <td><%=college.city%></td>
+        <td><%=college.state%></td>
+      </tr>
+      <% end %>
+    </table>
+
+    </p>
+
+    <!--link options-->
+    <div>
+      <div style="display: inline-block;">  </div>
+      <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
+      <div style="display: inline-block;">  </div>
+      <div style="display: inline-block;"><%= link_to "Back to Profile", user_path(current_user) %></div>
+      <div style="display: inline-block;">  </div>
+    </div>
+
+  </div>
+</div>
