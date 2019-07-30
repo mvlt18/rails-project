@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_191607) do
     t.string "degree"
     t.string "program"
     t.string "website"
-    t.string "status"
+    t.integer "status"
     t.string "faculty"
     t.integer "application_cost"
     t.text "lor"

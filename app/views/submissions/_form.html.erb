@@ -48,7 +48,7 @@
 
 <div class="w3-section">
 <%= f.label :status%>
-<%= f.text_field :status %><br><br>
+<%= f.select :status, Submission.status_types.keys, prompt: true %><br>
 </div>
 
 <%= f.submit "Submit" %>
