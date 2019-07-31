@@ -25,17 +25,26 @@
     </p>
 
     <br>
-    <h4><%= link_to "Current Graduate School Applications", user_submissions_path(@user) %></h4>
-
+    <h4><%= link_to "View Current Graduate School Submissions", user_submissions_path(@user) %></h4>
   </div>
 </div>
 
-  <!--link options-->
-  <div>
-      <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
-      <div style="display: inline-block;">  </div>
-      <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
-      <div style="display: inline-block;">  </div>
-      <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
-      <div style="display: inline-block;">  </div>
+<!--link options-->
+<div>
+    <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
+    <div style="display: inline-block;">  </div>
+    <div style="display: inline-block;"><%= link_to "View all Submissions", submissions_path %></div>
+    <div style="display: inline-block;">  </div>
+    <div style="display: inline-block;"><%= link_to "Add a New Submission", new_submission_path %></div>
+    <div style="display: inline-block;">  </div>
+</div>
+
+<!-- Accepted section -->
+<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  <div class="w3-content" style="max-width:600px">
+    <h5>Accepted Programs ~ hip - hip - hooray! </h5>
+        <%@user.submissions.accepted.each do |program| %>
+          <%=program.college.name%> - <%=program.program%><br>
+          <%end%>
   </div>
+</div>

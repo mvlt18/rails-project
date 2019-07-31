@@ -1,7 +1,7 @@
 <div class="w3-container w3-light-grey w3-padding-32 " id="contact">
   <div class="w3-content" style="left-align" >
 
-    <h4>Applications by Social Grads Community</h4>
+    <h4>Submissions (most recent on top)</h4>
     <p>
 
     <table>
@@ -13,7 +13,7 @@
         <th class="w3-large w3-padding-22">Email</th>
       </tr>
 
-      <% @submissions.each do |submission| %>
+      <% @submissions.recent.each do |submission| %>
 
       <tr>
         <td><%= link_to submission.program, user_submission_path(submission.user_id,submission) %></td>
@@ -32,9 +32,9 @@
     <div>
         <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
         <div style="display: inline-block;">  </div>
-        <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
+        <div style="display: inline-block;"><%= link_to "View all Submissions", submissions_path %></div>
         <div style="display: inline-block;">  </div>
-        <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
+        <div style="display: inline-block;"><%= link_to "Add a New Submission", new_submission_path %></div>
         <div style="display: inline-block;">  </div>
         <div style="display: inline-block;"><%= link_to "Back to Profile", user_path(current_user) %></div>
         <div style="display: inline-block;">  </div>
