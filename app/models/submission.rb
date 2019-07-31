@@ -9,4 +9,6 @@ class Submission < ApplicationRecord
     where(status_id: 4)
   end
 
+  
+
 end
