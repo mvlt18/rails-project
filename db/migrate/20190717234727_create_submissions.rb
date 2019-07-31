@@ -8,7 +8,7 @@ class CreateSubmissions < ActiveRecord::Migration[5.2]
       t.string :degree
       t.string :program
       t.string :website
-      t.boolean :status
+      t.boolean :status_id
       t.string :faculty
       t.integer :application_cost
       t.boolean :cv

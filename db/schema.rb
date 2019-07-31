@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_191607) do
+ActiveRecord::Schema.define(version: 2019_07_31_165010) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
     t.string "city"
     t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_191607) do
     t.string "degree"
     t.string "program"
     t.string "website"
-    t.integer "status"
+    t.integer "status_id"
     t.string "faculty"
     t.integer "application_cost"
     t.text "lor"
