@@ -1,6 +1,16 @@
 <%= form_for @submission do |f| %>
 <%= f.hidden_field :user_id, :value=> session[:user_id] %>
 
+<% if @submission.errors.any? %>
+  <div>
+    <ul>
+    <% @submission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="w3-section">
 <%= f.label :college_id, "Select a School" %>
 <%= f.collection_select :college_id, College.all, :id, :name, prompt: true %><br><br>

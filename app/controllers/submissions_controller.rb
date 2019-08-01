@@ -1,6 +1,5 @@
 class SubmissionsController < ApplicationController
     before_action :require_logged_in
-    # before_action :user_submission_match
 
   # action to display all submissions
   def index
@@ -21,21 +20,19 @@ class SubmissionsController < ApplicationController
   #action to display new submission form
   def new
     @submission = Submission.new
+    @statuses = Status.all
   end
 
-  def create
-    if current_user
-      @user = current_user
-      @submission = @user.submissions.build(submission_params)
-        if @submission.save
-          redirect_to @submission
-        end
-    else
-      redirect :new
-    #   raise @submission.errors.inspect
-    end
+def create
+  @submission = current_user.submissions.build(submission_params)
+  if @submission.valid?
+    @submission.save
+    redirect_to @submission
+  else
+    # raise @submission.errors.inspect
+    render :new
   end
-
+end
 
   def edit
     set_submission
@@ -63,7 +60,7 @@ class SubmissionsController < ApplicationController
   private
 
   def submission_params
-    params.require(:submission).permit(:user_id, :college_id, :deadline, :date_submitted, :degree, :program, :website, :status, :faculty, :application_cost, :lor)
+    params.require(:submission).permit(:user_id, :college_id, :deadline, :date_submitted, :degree, :program, :website, :status_id, :faculty, :application_cost, :lor)
   end
 
   def set_submission
