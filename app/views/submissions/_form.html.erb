@@ -3,6 +3,10 @@
 
 <% if @submission.errors.any? %>
   <div>
+    <h4>
+  <%= pluralize(@submission.errors.count, "error") %>
+  prohibited this submission from being saved:
+</h4>
     <ul>
     <% @submission.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

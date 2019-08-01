@@ -8,8 +8,8 @@
     State: <%= @college.state %><br>
     </p>
 
-    <p>Current count of applications by community: <%=@college.submissions.count%> - <%= link_to "View Applications", college_submissions_path(@college) %></p>
-    <p><%= link_to "Back to Schools", colleges_path %></p>
+    <p>Current count of submissions by community: <%=@college.submissions.count%> - <%= link_to "View Submissions", college_submissions_path(@college) %></p>
+    <p><%= link_to "Back to Colleges", colleges_path %></p>
 
   </div>
 </div>

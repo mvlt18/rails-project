@@ -1,7 +1,7 @@
 <div class="w3-container w3-light-grey w3-padding-32 " id="contact">
   <div class="w3-content" style="left-align" >
 
-    <h4>Application Details:</h4>
+    <h4>Submission Details:</h4>
     <p>Applicant: <%=link_to @submission.user.name, user_path(@submission.user) %></p>
 
     <p>
@@ -20,19 +20,19 @@
     </p>
     <!--link options-->
     <div>
-        <div style="display: inline-block;"><%= link_to "View all Schools", colleges_path %></div>
+        <div style="display: inline-block;"><%= link_to "View all Colleges", colleges_path %></div>
         <div style="display: inline-block;">  </div>
-        <div style="display: inline-block;"><%= link_to "View all Applications", submissions_path %></div>
+        <div style="display: inline-block;"><%= link_to "View all Submissions", submissions_path %></div>
         <div style="display: inline-block;">  </div>
-        <div style="display: inline-block;"><%= link_to "Add a New Application", new_submission_path %></div>
+        <div style="display: inline-block;"><%= link_to "Add a New Submission", new_submission_path %></div>
         <div style="display: inline-block;">  </div>
         <div style="display: inline-block;"><%= link_to "Back to Profile", user_path(current_user) %></div>
         <div style="display: inline-block;">  </div>
         <br>
         <% if current_user == @submission.user %>
-        <div style="display: inline-block;"><%= link_to "Edit Application", edit_college_submission_path(@submission.college, @submission) if @submission.college %></div>
+        <div style="display: inline-block;"><%= link_to "Edit Submission", edit_college_submission_path(@submission.college, @submission) if @submission.college %></div>
         <div style="display: inline-block;">  </div>
-        <div style="display: inline-block;"><%= link_to 'Delete Application',  submission_path(@submission), data: { confirm: 'Are you sure you want to delete this application?' }, method: :delete %></div>
+        <div style="display: inline-block;"><%= link_to 'Delete Submission',  submission_path(@submission), data: { confirm: 'Are you sure you want to delete this application?' }, method: :delete %></div>
         <% end %>
         <div style="display: inline-block;">  </div>
     </div>
