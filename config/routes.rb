@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
 
-  resources :colleges
-  resources :users
-  resources :submissions #, only: [:index, :new, :show, :create, :edit]
+  resources :users , only: [:new, :create, :show, :edit, :update]
+  resources :submissions
 
   root 'sessions#home'
 
@@ -15,11 +14,11 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
 
 
-  resources :users , only: [:new, :show] do
-    resources :submissions , only: [:show, :index]
+  resources :users do
+    resources :submissions , only: [:show, :index, :edit]
   end
 
-  resources :colleges , only: [:new, :show] do
+  resources :colleges , only: [:show, :index] do
     resources :submissions , only: [:show, :index, :edit]
   end
 

@@ -28,6 +28,7 @@ def create
   if @submission.valid?
     @submission.save
     redirect_to @submission
+    # user_submission_path(current_user,@submission)
   else
     # raise @submission.errors.inspect
     render :new
@@ -37,25 +38,23 @@ end
   def edit
     set_submission
     @college = College.find_by(id: params[:college_id])
-
-      if @submission.user_id != current_user.id
+    if @submission.user_id != current_user.id
       redirect_to colleges_path
-      end
+    end
   end
 
   def update
     submission = Submission.find(params[:id])
     submission.update(submission_params)
-    redirect_to submission
+    # redirect_to submission
+    redirect_to user_submission_path(current_user,submission)
   end
 
   def destroy
-       set_submission
-       # if current_user.id == @submission.user_id
-         @submission.destroy
-         redirect_to submissions_path
-       # end
-     end
+   set_submission
+   @submission.destroy
+   redirect_to submissions_path
+  end
 
   private
 

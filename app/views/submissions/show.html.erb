@@ -5,7 +5,7 @@
     <p>Applicant: <%=link_to @submission.user.name, user_path(@submission.user) %></p>
 
     <p>
-    School: <%= @submission.college.name %><br>
+    College: <%= @submission.college.name %><br>
     Program: <%= @submission.program %><br>
     Department Website: <%= @submission.website %><br>
     Degree: <%= @submission.degree %><br>
@@ -30,7 +30,7 @@
         <div style="display: inline-block;">  </div>
         <br>
         <% if current_user == @submission.user %>
-        <div style="display: inline-block;"><%= link_to "Edit Submission", edit_college_submission_path(@submission.college, @submission) if @submission.college %></div>
+        <div style="display: inline-block;"><%= link_to "Edit Submission", edit_user_submission_path(@submission.user, @submission) if @submission.user %></div>
         <div style="display: inline-block;">  </div>
         <div style="display: inline-block;"><%= link_to 'Delete Submission',  submission_path(@submission), data: { confirm: 'Are you sure you want to delete this application?' }, method: :delete %></div>
         <% end %>

@@ -3,20 +3,21 @@
 
 <% if @submission.errors.any? %>
   <div>
-    <h4>
+    <h4 style="color:red">
   <%= pluralize(@submission.errors.count, "error") %>
   prohibited this submission from being saved:
 </h4>
-    <ul>
+    <ul style="color:red">
     <% @submission.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li style="color:red"><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
+<br>
 
 <div class="w3-section">
-<%= f.label :college_id, "Select a School" %>
+<%= f.label :college_id, "Select a College" %>
 <%= f.collection_select :college_id, College.all, :id, :name, prompt: true %><br><br>
 </div>
 
