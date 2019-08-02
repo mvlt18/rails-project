@@ -1,24 +1,36 @@
-# README
+# Rails Project: Social Grads
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Social Grads is a social tool for people in the process or wanting to apply to graduate school.
 
-Things you may want to cover:
+ ![college](public/images/victoria-heath-b7CRDcwfNFU-unsplash.jpg)
 
-* Ruby version
+## Installation
 
-* System dependencies
+* Install Ruby 2.6.1 on your local computer
+* Fork the repository from https://github.com/mvlt18/social-grads
+* Clone the repository into a directory of your choice with `git clone git@github.com:mvlt18/social-grads.git`
+* Navigate to the directory with `cd social-grads`
+* Run `bundle install`
+* Create the program tables `rake db:migrate`
+* Open up a server of your choice
 
-* Configuration
 
-* Database creation
+## Demo
 
-* Database initialization
+https://youtu.be/Bwk2c6NaOlA
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+You can make a request or report a bug by creating an issue or by submitting a pull request.
+* Create a branch named after the feature or bug.
+* Write your code and commit changes/issue with a commit message.
+* Push the branch to the master branch.
+* Create a pull request, explaining the issue/reason for change/feature addition.
 
-* Deployment instructions
+## License
 
-* ...
+Fresh Bites is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+
+All images used are from: https://unsplash.com
+CSS layout: https://www.w3schools.com/w3css/w3css_templates.asp
