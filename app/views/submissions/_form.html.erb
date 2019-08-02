@@ -4,8 +4,8 @@
 <% if @submission.errors.any? %>
   <div>
     <h4 style="color:red">
-  <%= pluralize(@submission.errors.count, "error") %>
-  prohibited this submission from being saved:
+  The following error(s) prevented this submission from being saved:<br>
+  Please enter the required fields.
 </h4>
     <ul style="color:red">
     <% @submission.errors.full_messages.each do |msg| %>
@@ -16,12 +16,21 @@
 <% end %>
 <br>
 
-<div class="w3-section">
+<% if @submission.errors[:college_id].empty? %>
+  <div class="w3-section">
+<% else %>
+  <div class="field_with_errors">
+<% end %>
 <%= f.label :college_id, "Select a College" %>
 <%= f.collection_select :college_id, College.all, :id, :name, prompt: true %><br><br>
 </div>
 
-<div class="w3-section">
+
+<% if @submission.errors[:program].empty? %>
+  <div class="w3-section">
+<% else %>
+  <div class="field_with_errors">
+<% end %>
 <%= f.label :program %>
 <%= f.text_field :program %><br>
 </div>
@@ -61,7 +70,11 @@
 <%= f.date_field :date_submitted %><br>
 </div>
 
-<div class="w3-section">
+<% if @submission.errors[:status_id].empty? %>
+  <div class="w3-section">
+<% else %>
+  <div class="field_with_errors">
+<% end %>
 <%= f.label :status_id, "Status" %>
 <%= f.collection_select :status_id, Status.all, :id, :name, prompt: true %><br><br>
 </div>
