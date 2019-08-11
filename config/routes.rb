@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get '/auth/github/callback' => 'sessions#create'
 
+  get 'popular' => 'colleges#popular'
+
 
   resources :users do
     resources :submissions , only: [:show, :index, :edit]

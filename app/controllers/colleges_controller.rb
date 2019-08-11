@@ -9,4 +9,10 @@ class CollegesController < ApplicationController
     @college = College.find_by_id(params[:id])
   end
 
+  def popular
+    @colleges = College.all
+    @list = @colleges.submissions_count
+    render :popular
+  end
+
 end
